@@ -63,7 +63,7 @@ const LoginForm = () => {
               Masuk untuk melanjutkan
             </p>
             <img
-              src="../../../public/Images/auth/image_form_auth.png"
+              src="Images/auth/image_form_auth.png"
               alt="Logo"
               className="mx-auto w-40 h-40"
             />
