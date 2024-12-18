@@ -51,7 +51,7 @@ const LoginForm = () => {
       <div className="relative min-h-screen">
         <img
           alt=""
-          src="../../../Images/background_auth.png"
+          src="Images/background_auth.png"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
@@ -63,7 +63,7 @@ const LoginForm = () => {
               Masuk untuk melanjutkan
             </p>
             <img
-              src="../../../public/Images/auth/image_form_auth.png"
+              src="Images/auth/image_form_auth.png"
               alt="Logo"
               className="mx-auto w-40 h-40"
             />

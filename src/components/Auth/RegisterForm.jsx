@@ -38,7 +38,7 @@ const RegisterForm = () => {
         <div className="relative min-h-screen">
           <img
             alt=""
-            src="../../../public/Images/background_auth.png"
+            src="Images/background_auth.png"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="relative z-10 flex items-center justify-center min-h-screen ">
