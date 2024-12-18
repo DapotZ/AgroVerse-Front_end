@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../../components/AdminComponent/Navbar";
-import Sidebar from "../../../components/AdminComponent/SideBar";
+import Sidebar from "../../../components/AdminComponent/Webinar/SideBar";
 import AddWebinarForm from "../../../components/AdminComponent/Webinar/AddWebinar";
 
 function App() {
