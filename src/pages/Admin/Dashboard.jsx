@@ -1,7 +1,7 @@
 import React from "react";
 import Content from "../../components/AdminComponent/Dashboard/Content";
 import Navbar from "../../components/AdminComponent/Navbar";
-import Sidebar from "../../components/AdminComponent/Webinar/SideBar";
+import Sidebar from "../../components/AdminComponent/Sidebar";
 
 function App() {
   return (

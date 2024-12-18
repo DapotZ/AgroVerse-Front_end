@@ -1,7 +1,7 @@
 import React from "react";
 import AddProductForm from "../../../components/AdminComponent/Products/AddProduct";
 import Navbar from "../../../components/AdminComponent/Navbar";
-import Sidebar from "../../../components/AdminComponent/SideBar";
+import Sidebar from "../../../components/AdminComponent/Sidebar";
 
 function App() {
   return (
