@@ -17,7 +17,7 @@ const ContentWebinar = () => {
       setLoading(true); // Set loading to true while fetching
       try {
         const response = await fetch(
-          `${process.env.VITE_API_URL}/?page=${page}&limit=${limit}`
+          `${process.env.VITE_API_URL}/webinar/?page=${page}&limit=${limit}`
         );
         const data = await response.json();
         console.log(data);
