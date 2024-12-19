@@ -17,7 +17,7 @@ const Content = () => {
       setLoading(true); // Set loading to true while fetching
       try {
         const response = await fetch(
-          `http://localhost:5000/api/product/?page=${page}&limit=${limit}`
+          `${process.env.VITE_API_URL}/product/?page=${page}&limit=${limit}`
         );
         const data = await response.json();
 
@@ -60,7 +60,7 @@ const Content = () => {
     if (result.isConfirmed) {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/product/${productId}`,
+          `${process.env.VITE_API_URL}/product/${productId}`,
           {
             method: "DELETE",
             headers: {

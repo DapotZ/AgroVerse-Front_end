@@ -10,7 +10,7 @@ const Collection = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/product/");
+        const response = await fetch(`${process.env.VITE_API_URL}/product/`);
         const data = await response.json();
         setProducts(data.data.slice(-3)); // Menyimpan data produk ke dalam state
         setLoading(false); // Set loading menjadi false setelah data diambil

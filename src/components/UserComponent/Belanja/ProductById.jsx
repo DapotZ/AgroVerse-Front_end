@@ -17,7 +17,7 @@ const ProductById = () => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/product/${productId}`
+          `${process.env.VITE_API_URL}/product/${productId}`
         );
         const data = await response.json();
         setProduct(data);
@@ -26,7 +26,7 @@ const ProductById = () => {
           setMainImage(data.images[0].image_url);
         }
         const ratingResponse = await fetch(
-          `http://localhost:5000/api/product/${productId}/rating`
+          `${process.env.VITE_API_URL}/product/${productId}/rating`
         );
         const ratingData = await ratingResponse.json();
         setRating(ratingData.averageRating);
@@ -34,7 +34,7 @@ const ProductById = () => {
 
         // Fetch reviews
         const reviewResponse = await fetch(
-          `http://localhost:5000/api/product/${productId}/review`
+          `${process.env.VITE_API_URL}/product/${productId}/review`
         );
         const reviewData = await reviewResponse.json();
         setReviews(reviewData.reviews); // Menyimpan ulasan ke state reviews

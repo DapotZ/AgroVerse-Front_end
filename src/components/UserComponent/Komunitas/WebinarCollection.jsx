@@ -9,7 +9,7 @@ const WebinarCollection = () => {
     const token = localStorage.getItem("token");
     console.log(token);
     axios
-      .get("http://localhost:5000/api/webinar", {
+      .get(`${process.env.VITE_API_URL}/webinar`, {
         headers: {
           Authorization: `Bearer ${token}`, // Menambahkan token ke header Authorization
         },

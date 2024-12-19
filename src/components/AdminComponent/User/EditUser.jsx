@@ -21,7 +21,7 @@ const EditUser = () => {
       try {
         // Mengambil data pengguna berdasarkan userId dengan otorisasi
         const response = await fetch(
-          `http://localhost:5000/api/user/${userId}`,
+          `${process.env.VITE_API_URL}/user/${userId}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -75,14 +75,17 @@ const EditUser = () => {
 
     try {
       // Mengirim permintaan PUT untuk memperbarui data pengguna
-      const response = await fetch(`http://localhost:5000/api/user/${userId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Sertakan token di header
-        },
-        body: JSON.stringify(updatedUser), // Kirim data dalam format JSON
-      });
+      const response = await fetch(
+        `${process.env.VITE_API_URL}/user/${userId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`, // Sertakan token di header
+          },
+          body: JSON.stringify(updatedUser), // Kirim data dalam format JSON
+        }
+      );
 
       if (response.ok) {
         // Jika berhasil, tampilkan pesan sukses

@@ -23,7 +23,7 @@ const Content = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:5000/api/product/");
+        const response = await fetch(`${process.env.VITE_API_URL}/product/`);
         const data = await response.json();
         console.log(data);
 
@@ -35,7 +35,7 @@ const Content = () => {
         console.error("Error fetching data:", error);
       }
       try {
-        const response = await fetch("http://localhost:5000/api/webinar");
+        const response = await fetch(`${process.env.VITE_API_URL}/webinar`);
         const data = await response.json();
 
         // Get the number of products from the response
@@ -47,7 +47,7 @@ const Content = () => {
       }
 
       try {
-        const response = await fetch(`http://localhost:5000/api/user`, {
+        const response = await fetch(`${process.env.VITE_API_URL}/user`, {
           headers: {
             Authorization: `Bearer ${token}`, // Kirim token dengan header Authorization
           },

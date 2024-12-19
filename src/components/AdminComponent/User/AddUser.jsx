@@ -27,7 +27,7 @@ const AddUserForm = () => {
 
     try {
       // Send the request to the API to add the user
-      const response = await fetch("http://localhost:5000/api/user", {
+      const response = await fetch(`${process.env.VITE_API_URL}/user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

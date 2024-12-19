@@ -25,7 +25,7 @@ const ContentUser = () => {
 
       try {
         const response = await fetch(
-          `http://localhost:5000/api/user/?page=${page}&limit=${limit}`,
+          `${process.env.VITE_API_URL}/user/?page=${page}&limit=${limit}`,
           {
             headers: {
               Authorization: `Bearer ${token}`, // Kirim token dengan header Authorization
@@ -70,7 +70,7 @@ const ContentUser = () => {
     if (result.isConfirmed) {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/user/${userId}`,
+          `${process.env.VITE_API_URL}/user/${userId}`,
           {
             method: "DELETE",
             headers: {

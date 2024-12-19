@@ -33,7 +33,7 @@ const AddWebinarForm = () => {
 
     try {
       // Send the request to the API to add the product
-      const response = await fetch("http://localhost:5000/api/webinar", {
+      const response = await fetch(`${process.env.VITE_API_URL}/webinar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

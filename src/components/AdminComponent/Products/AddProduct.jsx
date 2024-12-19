@@ -17,7 +17,7 @@ const AddProductForm = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/category");
+        const response = await fetch(`${process.env.VITE_API_URL}/category`);
         const data = await response.json();
         console.log(data);
         if (data.categories) {
@@ -56,7 +56,7 @@ const AddProductForm = () => {
 
     try {
       // Send the request to the API to add the product
-      const response = await fetch("http://localhost:5000/api/product/", {
+      const response = await fetch(`${process.env.VITE_API_URL}/product/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

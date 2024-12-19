@@ -20,7 +20,7 @@ const EditProduct = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/category");
+        const response = await fetch(`${process.env.VITE_API_URL}/category`);
         const data = await response.json();
         if (data.categories) {
           setCategories(data.categories);
@@ -39,7 +39,7 @@ const EditProduct = () => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/product/${productId}`
+          `${process.env.VITE_API_URL}/product/${productId}`
         );
         const data = await response.json();
         console.log("Fetched product data:", data);
@@ -92,7 +92,7 @@ const EditProduct = () => {
     try {
       // Send the request to the API to update the product
       const response = await fetch(
-        `http://localhost:5000/api/product/${productId}`,
+        `${process.env.VITE_API_URL}/product/${productId}`,
         {
           method: "PUT",
           headers: {

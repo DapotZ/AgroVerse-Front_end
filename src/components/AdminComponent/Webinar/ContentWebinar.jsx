@@ -17,7 +17,7 @@ const ContentWebinar = () => {
       setLoading(true); // Set loading to true while fetching
       try {
         const response = await fetch(
-          `http://localhost:5000/api/webinar/?page=${page}&limit=${limit}`
+          `${process.env.VITE_API_URL}/?page=${page}&limit=${limit}`
         );
         const data = await response.json();
         console.log(data);
@@ -57,7 +57,7 @@ const ContentWebinar = () => {
     if (result.isConfirmed) {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/webinar/${webinarId}`,
+          `${process.env.VITE_API_URL}/webinar/${webinarId}`,
           {
             method: "DELETE",
             headers: {

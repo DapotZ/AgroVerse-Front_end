@@ -15,7 +15,7 @@ const EditProduct = () => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/webinar/${webinarId}`
+          `${process.env.VITE_API_URL}/webinar/${webinarId}`
         );
         const data = await response.json();
         console.log(data.webinar);
@@ -64,7 +64,7 @@ const EditProduct = () => {
     try {
       // Send the request to the API to update the product
       const response = await fetch(
-        `http://localhost:5000/api/webinar/${webinarId}`,
+        `${process.env.VITE_API_URL}/webinar/${webinarId}`,
         {
           method: "PUT",
           headers: {
