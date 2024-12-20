@@ -7,7 +7,7 @@ const Komunitas = () => {
   return (
     <div>
       <Navbar />
-      <Banner image="Images/Komunitas/background.png" />
+      <Banner image="/Images/Komunitas/background.png" />
       <Cards />
       <Footer />
     </div>

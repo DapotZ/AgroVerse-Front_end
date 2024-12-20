@@ -8,7 +8,7 @@ const Cards = () => {
         <div className="flex flex-col lg:flex-row p-8 items-center bg-white rounded-lg">
           {/* Gambar */}
           <img
-            src="Images/Komunitas/card1.png"
+            src="/Images/Komunitas/card1.png"
             alt="Webinar"
             className="lg:w-2/5 w-full h-80 object-cover rounded-xl"
           />
@@ -39,7 +39,7 @@ const Cards = () => {
         <div className="flex flex-col lg:flex-row p-8 items-center bg-white rounded-lg">
           {/* Gambar */}
           <img
-            src="Images/Komunitas/card2.png"
+            src="/Images/Komunitas/card2.png"
             alt="Webinar"
             className="lg:w-2/5 w-full h-80 object-cover rounded-xl"
           />
