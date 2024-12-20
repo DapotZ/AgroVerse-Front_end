@@ -26,7 +26,7 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <a className="block text-teal-600" href="#">
               <span className="sr-only">Home</span>
-              <img src="Images/logo.png" className="h-20 w-auto" alt="" />
+              <img src="Images/Logo.png" className="h-20 w-auto" alt="" />
             </a>
             <p className="text-xl font-bold text-hijau font-montserrat sm:text-2xl hidden md:block">
               AGROVERSE

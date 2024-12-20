@@ -1,9 +1,9 @@
+import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState, useEffect } from "react";
 
 const Carousel = () => {
   const images = [
@@ -13,6 +13,7 @@ const Carousel = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -24,6 +25,11 @@ const Carousel = () => {
     );
   };
 
+  // Menunggu gambar dimuat
+  const handleImageLoad = () => {
+    setLoading(false);
+  };
+
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000); // Slide every 5 seconds
     return () => clearInterval(interval); // Clear interval on component unmount
@@ -31,6 +37,12 @@ const Carousel = () => {
 
   return (
     <div className="relative w-full h-screen mx-auto overflow-hidden">
+      {loading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+          Loading...
+        </div>
+      )}
+
       {/* Carousel Images */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
@@ -44,6 +56,7 @@ const Carousel = () => {
             src={image}
             alt={`carousel image ${index + 1}`}
             className="w-full sm:h-full h-screen object-cover"
+            onLoad={handleImageLoad}
           />
         ))}
       </div>
@@ -51,7 +64,7 @@ const Carousel = () => {
       {/* Previous Button */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white p-2 rounded-full  bg-opacity-50 hover:bg-opacity-75 transition-all"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white p-2 rounded-full bg-opacity-50 hover:bg-opacity-75 transition-all"
       >
         <FontAwesomeIcon icon={faChevronLeft} />
       </button>
@@ -59,7 +72,7 @@ const Carousel = () => {
       {/* Next Button */}
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white p-2 rounded-full  bg-opacity-50 hover:bg-opacity-75 transition-all"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white p-2 rounded-full bg-opacity-50 hover:bg-opacity-75 transition-all"
       >
         <FontAwesomeIcon icon={faChevronRight} />
       </button>
