@@ -14,11 +14,10 @@ const ProductById = () => {
   const [reviews, setReviews] = useState([]); // State untuk menyimpan ulasan produk
 
   useEffect(() => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const fetchProduct = async () => {
       try {
-        const response = await fetch(
-          `${process.env.VITE_API_URL}/product/${productId}`
-        );
+        const response = await fetch(`${API_URL}/product/${productId}`);
         const data = await response.json();
         setProduct(data);
         setLoading(false);
@@ -26,7 +25,7 @@ const ProductById = () => {
           setMainImage(data.images[0].image_url);
         }
         const ratingResponse = await fetch(
-          `${process.env.VITE_API_URL}/product/${productId}/rating`
+          `${API_URL}/product/${productId}/rating`
         );
         const ratingData = await ratingResponse.json();
         setRating(ratingData.averageRating);
@@ -34,7 +33,7 @@ const ProductById = () => {
 
         // Fetch reviews
         const reviewResponse = await fetch(
-          `${process.env.VITE_API_URL}/product/${productId}/review`
+          `${API_URL}/product/${productId}/review`
         );
         const reviewData = await reviewResponse.json();
         setReviews(reviewData.reviews); // Menyimpan ulasan ke state reviews

@@ -6,10 +6,11 @@ const WebinarCollection = () => {
 
   // Mengambil data webinar dari API
   useEffect(() => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const token = localStorage.getItem("token");
     console.log(token);
     axios
-      .get(`${process.env.VITE_API_URL}/webinar`, {
+      .get(`${API_URL}/webinar`, {
         headers: {
           Authorization: `Bearer ${token}`, // Menambahkan token ke header Authorization
         },

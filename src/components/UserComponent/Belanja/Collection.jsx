@@ -10,9 +10,10 @@ const Collection = () => {
 
   // Mengambil data produk dari API saat komponen di-mount
   useEffect(() => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${process.env.VITE_API_URL}/product/`);
+        const response = await fetch(`${API_URL}/product/`);
         const data = await response.json();
         setProducts(data.data.slice(-10)); // Menyimpan produk terbaru
         setLoading(false); // Set loading menjadi false setelah data diambil
@@ -24,7 +25,7 @@ const Collection = () => {
 
     const fetchCategories = async () => {
       try {
-        const response = await fetch(`${process.env.VITE_API_URL}/category`); // Mengambil kategori dari API
+        const response = await fetch(`${API_URL}/category`); // Mengambil kategori dari API
         const data = await response.json();
         setCategories(data.categories); // Menyimpan kategori yang diterima
       } catch (error) {
