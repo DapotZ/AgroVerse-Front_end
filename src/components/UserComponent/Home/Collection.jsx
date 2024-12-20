@@ -9,8 +9,9 @@ const Collection = () => {
   // Mengambil data dari API saat komponen di-mount
   useEffect(() => {
     const fetchProducts = async () => {
+      const API_URL = import.meta.env.VITE_API_URL;
       try {
-        const response = await fetch(`${process.env.VITE_API_URL}/product/`);
+        const response = await fetch(`${API_URL}/product/`);
         const data = await response.json();
         setProducts(data.data.slice(-3)); // Menyimpan data produk ke dalam state
         setLoading(false); // Set loading menjadi false setelah data diambil
