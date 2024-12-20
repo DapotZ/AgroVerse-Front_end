@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <section className="relative">
       {/* Background image with filter */}
-      <div className="absolute inset-0 bg-[url('../../../public/Images/hero.png')] bg-cover bg-center filter brightness-[0.6] z-0"></div>
+      <div className="absolute inset-0 bg-[url('Images/hero.png')] bg-cover bg-center filter brightness-[0.6] z-0"></div>
 
       {/* Teks berada di atas gambar */}
       <div className="relative z-10 mx-auto max-w-screen-xl lg:flex lg:h-screen lg:items-center px-4 py-4">

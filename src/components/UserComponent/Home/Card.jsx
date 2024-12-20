@@ -8,19 +8,19 @@ const Card = () => {
         {/* Gunakan grid untuk membuat tata letak responsif */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
           <CardSection
-            image="../../../public/Images/card/card1.png"
+            image="Images/card/card1.png"
             title="Panduan Perawatan berbagai jenis tanaman hias"
           />
           <CardSection
-            image="../../../public/Images/card/card2.png"
+            image="Images/card/card2.png"
             title="Forum Diskusi untuk berbagi ilmu dan pengalaman"
           />
           <CardSection
-            image="../../../public/Images/card/card3.png"
+            image="Images/card/card3.png"
             title="Sesi edukasi interaktif dengan pakar tanaman hias"
           />
           <CardSection
-            image="../../../public/Images/card/card4.png"
+            image="Images/card/card4.png"
             title="Marketplace alat dan bahan perawatan tanaman"
           />
         </div>

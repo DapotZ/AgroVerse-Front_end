@@ -8,7 +8,7 @@ const Komunitas = () => {
     <div>
       <Navbar />
       <WebinarBanner
-        image="../../../public/Images/Komunitas/background_webinar.png"
+        image="Images/Komunitas/background_webinar.png"
         text1="Webinar Interaktif"
         text2="Bersama Para Ahli"
       />
