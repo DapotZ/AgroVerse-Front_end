@@ -87,7 +87,7 @@ const ProductById = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/product/${productId}/rating-review`,
+        `${API_URL}/product/${productId}/rating-review`,
         {
           method: "POST",
           headers: {
