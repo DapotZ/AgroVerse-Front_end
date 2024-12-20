@@ -12,9 +12,9 @@ const ProductById = () => {
   const [reviewText, setReviewText] = useState(""); // State untuk review text
   const [modalOpen, setModalOpen] = useState(false); // State untuk membuka/menutup modal
   const [reviews, setReviews] = useState([]); // State untuk menyimpan ulasan produk
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const fetchProduct = async () => {
       try {
         const response = await fetch(`${API_URL}/product/${productId}`);

@@ -6,11 +6,12 @@ const Collection = () => {
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]); // Menyimpan kategori
   const [selectedCategory, setSelectedCategory] = useState(""); // Kategori yang dipilih
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const navigate = useNavigate();
 
   // Mengambil data produk dari API saat komponen di-mount
   useEffect(() => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const fetchProducts = async () => {
       try {
         const response = await fetch(`${API_URL}/product/`);
