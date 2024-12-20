@@ -56,7 +56,7 @@ const FooterUser = () => {
           </div>
           <a href="#">
             <img
-              src="Images/footer/googleplay.png"
+              src="/Images/footer/googleplay.png"
               alt="Get it on Google Play"
               className="w-32 mx-auto sm:mx-0"
             />

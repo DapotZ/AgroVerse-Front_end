@@ -9,7 +9,7 @@ const Forum = () => {
     <div>
       <Navbar />
       <WebinarBanner
-        image="Images/forum/background.png"
+        image="/Images/forum/background.png"
         text1="Ngobrol Asyik tentang"
         text2="Tanaman Hias"
       />
