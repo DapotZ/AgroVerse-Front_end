@@ -15,12 +15,13 @@ const EditProduct = () => {
   const [image4, setImage4] = useState("");
   const [categories, setCategories] = useState([]); // State to store categories
   console.log("Product ID:", productId);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   // Fetch categories from API on component mount
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch(`${process.env.VITE_API_URL}/category`);
+        const response = await fetch(`${API_URL}/category`);
         const data = await response.json();
         if (data.categories) {
           setCategories(data.categories);
@@ -38,9 +39,7 @@ const EditProduct = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(
-          `${process.env.VITE_API_URL}/product/${productId}`
-        );
+        const response = await fetch(`${API_URL}/product/${productId}`);
         const data = await response.json();
         console.log("Fetched product data:", data);
         console.log("Images data:", data.images);
@@ -91,17 +90,14 @@ const EditProduct = () => {
 
     try {
       // Send the request to the API to update the product
-      const response = await fetch(
-        `${process.env.VITE_API_URL}/product/${productId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Include token in header
-          },
-          body: JSON.stringify(updatedProduct),
-        }
-      );
+      const response = await fetch(`${API_URL}/product/${productId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Include token in header
+        },
+        body: JSON.stringify(updatedProduct),
+      });
 
       if (response.ok) {
         // If successful, show success message

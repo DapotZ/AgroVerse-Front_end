@@ -7,6 +7,7 @@ const EditUser = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -20,15 +21,12 @@ const EditUser = () => {
 
       try {
         // Mengambil data pengguna berdasarkan userId dengan otorisasi
-        const response = await fetch(
-          `${process.env.VITE_API_URL}/user/${userId}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`, // Sertakan token di header
-            },
-          }
-        );
+        const response = await fetch(`${API_URL}/user/${userId}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`, // Sertakan token di header
+          },
+        });
 
         if (!response.ok) {
           // Jika server mengembalikan status error
@@ -75,17 +73,14 @@ const EditUser = () => {
 
     try {
       // Mengirim permintaan PUT untuk memperbarui data pengguna
-      const response = await fetch(
-        `${process.env.VITE_API_URL}/user/${userId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Sertakan token di header
-          },
-          body: JSON.stringify(updatedUser), // Kirim data dalam format JSON
-        }
-      );
+      const response = await fetch(`${API_URL}/user/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Sertakan token di header
+        },
+        body: JSON.stringify(updatedUser), // Kirim data dalam format JSON
+      });
 
       if (response.ok) {
         // Jika berhasil, tampilkan pesan sukses

@@ -12,12 +12,13 @@ const AddProductForm = () => {
   const [image3, setImage3] = useState(""); // URL for image 3
   const [image4, setImage4] = useState(""); // URL for image 4
   const [categories, setCategories] = useState([]); // State to store categories
+  const API_URL = import.meta.env.VITE_API_URL;
 
   // Fetch categories from API on component mount
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch(`${process.env.VITE_API_URL}/category`);
+        const response = await fetch(`${API_URL}/category`);
         const data = await response.json();
         console.log(data);
         if (data.categories) {
@@ -56,7 +57,7 @@ const AddProductForm = () => {
 
     try {
       // Send the request to the API to add the product
-      const response = await fetch(`${process.env.VITE_API_URL}/product/`, {
+      const response = await fetch(`${API_URL}/product/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

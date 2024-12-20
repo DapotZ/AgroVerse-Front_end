@@ -10,6 +10,7 @@ const ContentUser = () => {
   const [limit, setLimit] = useState(10); // Produk per halaman
   const [total, setTotal] = useState(0); // Total produk
   const [loading, setLoading] = useState(false); // Loading state
+  const API_URL = import.meta.env.VITE_API_URL;
 
   // Fetch webinar data from the API with pagination
   useEffect(() => {
@@ -25,7 +26,7 @@ const ContentUser = () => {
 
       try {
         const response = await fetch(
-          `${process.env.VITE_API_URL}/user/?page=${page}&limit=${limit}`,
+          `${API_URL}/user/?page=${page}&limit=${limit}`,
           {
             headers: {
               Authorization: `Bearer ${token}`, // Kirim token dengan header Authorization
@@ -69,15 +70,12 @@ const ContentUser = () => {
 
     if (result.isConfirmed) {
       try {
-        const response = await fetch(
-          `${process.env.VITE_API_URL}/user/${userId}`,
-          {
-            method: "DELETE",
-            headers: {
-              Authorization: `Bearer ${token}`, // Include token in header
-            },
-          }
-        );
+        const response = await fetch(`${API_URL}/user/${userId}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`, // Include token in header
+          },
+        });
 
         if (response.ok) {
           setUsers((prevUsers) =>

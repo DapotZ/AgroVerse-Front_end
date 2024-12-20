@@ -8,6 +8,7 @@ const AddUserForm = () => {
   const [role, setRole] = useState("");
 
   const handleSubmit = async (e) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     e.preventDefault();
     const token = localStorage.getItem("token"); // Get the token from localStorage
     const userRole = localStorage.getItem("userRole"); // Get the role from localStorage
@@ -27,7 +28,7 @@ const AddUserForm = () => {
 
     try {
       // Send the request to the API to add the user
-      const response = await fetch(`${process.env.VITE_API_URL}/user`, {
+      const response = await fetch(`${API_URL}/user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -10,6 +10,7 @@ const Content = () => {
   const [limit, setLimit] = useState(10); // Produk per halaman
   const [total, setTotal] = useState(0); // Total produk
   const [loading, setLoading] = useState(false); // Loading state
+  const API_URL = import.meta.env.VITE_API_URL;
 
   // Fetch product data from the API with pagination
   useEffect(() => {
@@ -17,7 +18,7 @@ const Content = () => {
       setLoading(true); // Set loading to true while fetching
       try {
         const response = await fetch(
-          `${process.env.VITE_API_URL}/product/?page=${page}&limit=${limit}`
+          `${API_URL}/product/?page=${page}&limit=${limit}`
         );
         const data = await response.json();
 
@@ -59,15 +60,12 @@ const Content = () => {
 
     if (result.isConfirmed) {
       try {
-        const response = await fetch(
-          `${process.env.VITE_API_URL}/product/${productId}`,
-          {
-            method: "DELETE",
-            headers: {
-              Authorization: `Bearer ${token}`, // Include token in header
-            },
-          }
-        );
+        const response = await fetch(`${API_URL}/product/${productId}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`, // Include token in header
+          },
+        });
 
         if (response.ok) {
           // If successful, remove the product from the state

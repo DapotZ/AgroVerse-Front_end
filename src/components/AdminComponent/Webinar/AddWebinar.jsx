@@ -9,6 +9,7 @@ const AddWebinarForm = () => {
   const [description, setDescription] = useState("");
   const [schedule, setSchedule] = useState("");
   const [link, setLink] = useState("");
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,7 +34,7 @@ const AddWebinarForm = () => {
 
     try {
       // Send the request to the API to add the product
-      const response = await fetch(`${process.env.VITE_API_URL}/webinar`, {
+      const response = await fetch(`${API_URL}/webinar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
